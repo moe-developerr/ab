@@ -1,0 +1,33 @@
+<section>
+	<h1>Register</h1>
+	<form ng-submit="vm.registerUser()" novalidate="novalidate">
+		<div class="form-group">
+			<label for="first-name" class="control-label">First Name *</label>
+			<input type="text" name="firstName" class="form-control" id="first-name" placeholder="First Name" ng-model="vm.model.firstName" required>
+		</div>
+		<div class="form-group">
+			<label for="last-name" class="control-label">Last Name *</label>
+			<input type="text" name="lastName" class="form-control" id="last-name" placeholder="Last Name" ng-model="vm.model.lastName" required>
+		</div>
+		<div class="form-group">
+			<label for="email" class="control-label">Email *</label>
+			<input type="email" name="email" class="form-control" id="email" placeholder="Email" ng-model="vm.model.email" required>
+		</div>
+		<div class="form-group">
+			<label for="password" class="control-label">Password *</label>
+			<input type="password" name="password" class="form-control" id="password" ng-model="vm.model.password" ng-minlength="6" required>
+		</div>
+		<div class="form-group">
+			<label for="confirm-password" class="control-label">Confirm Password *</label>
+			<input type="password" name="confirmPassword" class="form-control" id="confirm-password" ng-model="vm.model.confrimPassword" ng-minlength="6" required>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary" ladda="vm.submitting" data-style="expand-right">
+				<span ng-show="!vm.submitting">REGISTER</span>
+				<span ng-show="vm.submitting">REGISTERING</span>
+			</button>
+			<button type="reset" class="btn btn-primary hide" id="reset">RESET</button>
+		</div>
+	</form>
+	<p class="help-block" ng-show="vm.response">{{ vm.response }}</p>
+</section>

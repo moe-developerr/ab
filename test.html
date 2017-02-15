@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*, *:before, *:after {
+			box-sizing: border-box;
+		}
+		#diamond {
+			position: relative;
+			width: 100%;
+			max-width: 200px;
+			height: 252px;
+			overflow: hidden;
+			background: url('assets/images/image.jpg') no-repeat center/cover;
+		}
+		#diamond:before,
+		#diamond:after {
+			content: '';
+			position: absolute;
+			height: 126.4px;
+			border-left: 100px solid white;
+			border-right: 100px solid white;
+		}
+		#diamond:before {
+			top: 0;
+			border-bottom: 126.4px solid transparent;
+		}
+		#diamond:after {
+			bottom: 0;
+			border-top: 126.4px solid transparent;
+		}
+	</style>
+</head>
+<body>
+	<div id="diamond"></div>
+</body>
+</html>

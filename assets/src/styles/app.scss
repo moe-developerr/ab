@@ -1,0 +1,30 @@
+// 1. utils
+@import
+	'utils/helpers';
+
+// 2. Vendors
+@import
+	'vendors/bootstrap',
+	'vendors/ladda-themeless.min';
+
+// 3. base
+// @import
+	// '';
+
+// 4. layout
+@import
+	'layout/header',
+	'layout/main',
+	'layout/footer';
+
+// 5. components
+// @import 
+// 	'';
+
+// 6. pages
+// @import 
+// 	'';
+
+// 7.themes
+// @import 
+// 	'';

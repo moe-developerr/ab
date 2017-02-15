@@ -1,0 +1,66 @@
+<section>
+	<h1>Profile</h1>
+	<ul class="nav nav-tabs" id="tabsWrapper">
+		<li class="active"><a href="#personal-information">Personal Information</a></li>
+		<li><a href="#recruitment-information">Recruitment Information</a></li>
+		<li><a href="#education">Education</a></li>
+		<li><a href="#professional-experience">Professional Experience</a></li>
+		<li><a href="#other-information">Other Information</a></li>
+		<li><a href="#upload-cv">Upload CV</a></li>
+	</ul>
+	<form novalidate="novalidate" ng-submit="vm.save()">
+		<div class="tab-content">
+			<div class="tab-pane active" id="personal-information">
+				<h3>Personal Information</h3>
+				<h4>Personal Address</h4>
+				<div ng-repeat="personalAddress in vm.personalAddresses track by $index">
+					<div class="form-group">
+						<select name="country" id="country" class="form-control" ng-model="vm.model.personalAddresses[$index].country" ng-options="country for country in vm.listOfCountries">
+							<option value="" disabled>Country</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<input type="text" name="city" id="city" class="form-control" placeholder="City" ng-model="vm.model.personalAddresses[$index].city">
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="button" class="btn btn-primary" ng-click="vm.addAddress()">Add Another Address</button>
+				</div>
+			</div>
+			<div class="tab-pane" id="recruitment-information">
+				<h3>Recruitment Information</h3>
+			</div>
+			<div class="tab-pane" id="education">
+				<h3>Education</h3>
+				<h4>Last Degree</h4>
+				<div ng-repeat="degree in vm.degrees track by $index">
+					<div class="form-group">
+						<select name="degree" id="degree" class="form-control" ng-model="vm.model.degrees[$index].degree" ng-options="degree for degree in vm.listOfDegrees"></select>
+					</div>
+					<div class="form-group">
+						<input type="text" name="major" id="major" class="form-control" placeholder="Major" ng-model="vm.model.degrees[$index].major">
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="button" class="btn btn-primary" ng-click="vm.addDegree()">Add Another Degree</button>
+				</div>
+			</div>
+			<div class="tab-pane" id="professional-experience">
+				<h3>Professional Experience</h3>
+			</div>
+			<div class="tab-pane" id="other-information">
+				<h3>Other Information</h3>
+			</div>
+			<div class="tab-pane" id="upload-cv">
+				<h3>Upload CV</h3>
+				<div class="form-group">
+					<button ngf-select ngf-accept="'application/*,text/*'" ngf-pattern="'application/*,text/*'" ngf-max-size="10MB" ng-model="vm.cv" name="cv" class="btn btn-danger">Browse</button>
+				</div>
+				<div class="form-group">
+					<button type="button" class="btn btn-primary" ng-click="vm.uploadCV()">Upload</button>
+					<p class="help-block" ng-show="vm.cvResponse">{{ vm.cvResponse }}</p>
+				</div>
+			</div>
+		</div>
+	</form>		
+</section>
